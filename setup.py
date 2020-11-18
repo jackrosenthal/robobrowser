@@ -5,8 +5,6 @@ import re
 import sys
 
 from setuptools import setup
-from setuptools import find_packages
-
 
 REQUIREMENTS = [
     'beautifulsoup4>=4.3.2',
@@ -60,7 +58,7 @@ setup(
     author_email='jack@rosenth.al',
 
     url='https://github.com/jackrosenthal/robobrowser',
-    packages=find_packages(exclude=('tests',)),
+    packages=['robobrowser'],
     package_dir={'robobrowser': 'robobrowser'},
     include_package_data=True,
     install_requires=REQUIREMENTS,
