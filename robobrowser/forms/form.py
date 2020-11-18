@@ -6,8 +6,6 @@ import re
 import collections
 from werkzeug.datastructures import OrderedMultiDict
 
-from robobrowser.compat import encode_if_py2
-
 from . import fields
 from .. import helpers
 from .. import exceptions
@@ -194,7 +192,6 @@ class Form(object):
             lambda field: isinstance(field, fields.Submit)
         )
 
-    @encode_if_py2
     def __repr__(self):
         state = u', '.join(
             [

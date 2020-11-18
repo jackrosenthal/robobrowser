@@ -28,17 +28,3 @@ else:
     iterkeys = lambda d: iter(d.keys())
     itervalues = lambda d: iter(d.values())
     builtin_name = 'builtins'
-
-
-def encode_if_py2(func):
-    """If Python 2.x, return decorated function encoding unicode return value
-    to UTF-8; else noop.
-    """
-    if not PY2:
-        return func
-    def wrapped(*args, **kwargs):
-        ret = func(*args, **kwargs)
-        if not isinstance(ret, unicode):
-            raise TypeError('Wrapped function must return `unicode`')
-        return ret.encode('utf-8', 'ignore')
-    return wrapped
