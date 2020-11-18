@@ -7,7 +7,6 @@ from nose.tools import *  # noqa
 import tempfile
 from bs4 import BeautifulSoup
 
-from robobrowser.compat import builtin_name
 from robobrowser.forms.form import Form, Payload, fields, _parse_fields
 from robobrowser import exceptions
 
@@ -599,7 +598,7 @@ class TestFileInput(unittest.TestCase):
         assert_equal(self.input._value, file)
         assert_equal(self.input.value, file)
 
-    @mock.patch('{0}.open'.format(builtin_name))
+    @mock.patch('builtins.open')
     def test_value_name(self, mock_open):
         file = tempfile.TemporaryFile('r')
         mock_open.return_value = file
