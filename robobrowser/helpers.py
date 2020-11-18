@@ -7,8 +7,6 @@ import re
 from bs4 import BeautifulSoup
 from bs4.element import Tag
 
-from robobrowser.compat import iteritems
-
 
 def find_all(soup, name=None, attrs=None, recursive=True, text=None,
               limit=None, **kwargs):
@@ -80,8 +78,4 @@ def lowercase_attr_names(tag):
     :param Tag: BeautifulSoup tag
 
     """
-    # Use list comprehension instead of dict comprehension for 2.6 support
-    tag.attrs = dict([
-        (key.lower(), value)
-        for key, value in iteritems(tag.attrs)
-    ])
+    tag.attrs = {key.lower(): value for key, value in tag.attrs.items()}
