@@ -48,12 +48,18 @@ def find_version(fname):
 
 
 setup(
-    name='robobrowser',
+    name='robobrowser-jmr',
     version=find_version('robobrowser/__init__.py'),
     description='Your friendly neighborhood web scraper',
-    author='Joshua Carp',
-    author_email='jm.carp@gmail.com',
-    url='https://github.com/jmcarp/robobrowser',
+
+    # Thanks to the original author (Joshua Carp, jm.carp@gmail.com)
+    # for a wonderful library.  They appear to not be responding to
+    # GitHub PRs, so I've made a fork.  Below is my contact info, not
+    # the original author of this library.
+    author='Jack Rosenthal',
+    author_email='jack@rosenth.al',
+
+    url='https://github.com/jackrosenthal/robobrowser',
     packages=find_packages(exclude=('tests',)),
     package_dir={'robobrowser': 'robobrowser'},
     include_package_data=True,
