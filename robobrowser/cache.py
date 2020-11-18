@@ -7,8 +7,6 @@ import logging
 import datetime
 from requests.adapters import HTTPAdapter
 
-from robobrowser.compat import OrderedDict, iteritems
-
 logger = logging.getLogger(__name__)
 
 # Modified from https://github.com/Lukasa/httpcache/blob/master/httpcache/cache.py
@@ -31,7 +29,7 @@ class RoboCache(object):
         """
         if self.max_age:
             keys = [
-                key for key, value in iteritems(self.data)
+                key for key, value in self.data.items()
                 if now - value['date'] > self.max_age
             ]
             for key in keys:

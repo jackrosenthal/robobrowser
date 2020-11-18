@@ -18,7 +18,6 @@ if PY2:
     basestring = basestring
     iterkeys = lambda d: d.iterkeys()
     itervalues = lambda d: d.itervalues()
-    iteritems = lambda d: d.iteritems()
     builtin_name = '__builtin__'
 else:
     import urllib.parse
@@ -28,7 +27,6 @@ else:
     basestring = (str, bytes)
     iterkeys = lambda d: iter(d.keys())
     itervalues = lambda d: iter(d.values())
-    iteritems = lambda d: iter(d.items())
     builtin_name = 'builtins'
 
 

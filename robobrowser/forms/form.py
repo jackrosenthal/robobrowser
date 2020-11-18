@@ -6,7 +6,7 @@ import re
 import collections
 from werkzeug.datastructures import OrderedMultiDict
 
-from robobrowser.compat import iteritems, encode_if_py2
+from robobrowser.compat import encode_if_py2
 
 from . import fields
 from .. import helpers
@@ -128,7 +128,7 @@ class Payload(object):
 
         """
         sink = self.options[key] if key is not None else self.data
-        for key, value in iteritems(data):
+        for key, value in data.items():
             sink.add(key, value)
 
     def to_requests(self, method='get'):
@@ -142,10 +142,10 @@ class Payload(object):
         data_key = 'params' if method.lower() == 'get' else 'data'
         out[data_key] = self.data
         out.update(self.options)
-        return dict([
-            (key, list(value.items(multi=True)))
-            for key, value in iteritems(out)
-        ])
+        return {
+            key: list(value.items(multi=True))
+            for key, value in out.items()
+        }
 
 
 def prepare_fields(all_fields, submit_fields, submit):

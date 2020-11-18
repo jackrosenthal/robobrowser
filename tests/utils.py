@@ -1,7 +1,6 @@
 import functools
 
 from robobrowser import responses
-from robobrowser.compat import iteritems
 
 
 class ArgCatcher(object):
@@ -20,7 +19,7 @@ class KwargSetter(object):
 
     """
     def __init__(self, **kwargs):
-        for key, value in iteritems(kwargs):
+        for key, value in kwargs.items():
             setattr(self, key, value)
 
 
