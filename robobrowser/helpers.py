@@ -7,14 +7,7 @@ import re
 from bs4 import BeautifulSoup
 from bs4.element import Tag
 
-from robobrowser.compat import string_types, iteritems
-
-
-def match_text(text, tag):
-    if isinstance(text, string_types):
-        return text in tag.text
-    if isinstance(text, re._pattern_type):
-        return text.search(tag.text)
+from robobrowser.compat import iteritems
 
 
 def find_all(soup, name=None, attrs=None, recursive=True, text=None,
@@ -29,14 +22,18 @@ def find_all(soup, name=None, attrs=None, recursive=True, text=None,
         return soup.find_all(
             name, attrs or {}, recursive, text, limit, **kwargs
         )
-    if isinstance(text, string_types):
-        text = re.compile(re.escape(text), re.I)
     tags = soup.find_all(
         name, attrs or {}, recursive, **kwargs
     )
     rv = []
+
+    def _match_text(tag):
+        if isinstance(text, str):
+            return text in tag
+        return text.search(tag)
+
     for tag in tags:
-        if match_text(text, tag):
+        if _match_text(str(tag)):
             rv.append(tag)
         if limit is not None and len(rv) >= limit:
             break
