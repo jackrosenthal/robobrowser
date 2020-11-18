@@ -5,7 +5,6 @@ HTML form fields.
 import abc
 import six
 
-from robobrowser.compat import string_types
 from robobrowser import helpers
 from robobrowser import exceptions
 
@@ -63,7 +62,7 @@ class FileInput(BaseField):
     def value(self, value):
         if hasattr(value, 'read'):
             self._value = value
-        elif isinstance(value, string_types):
+        elif isinstance(value, str):
             self._value = open(value)
         else:
             raise ValueError('Value must be a file object or file path')
@@ -160,7 +159,7 @@ class FlatOptionField(MultiOptionField):
             options.append(value)
             labels.append(
                 option.next.string
-                if isinstance(option.next, string_types)
+                if isinstance(option.next, str)
                 else None
             )
             if checked is not None:
