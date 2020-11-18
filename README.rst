@@ -1,15 +1,6 @@
 RoboBrowser: Your friendly neighborhood web scraper
 ===============================================
 
-.. image:: https://badge.fury.io/py/robobrowser.png
-    :target: http://badge.fury.io/py/robobrowser
-
-.. image:: https://travis-ci.org/jmcarp/robobrowser.png?branch=master
-        :target: https://travis-ci.org/jmcarp/robobrowser
-
-.. image:: https://coveralls.io/repos/jmcarp/robobrowser/badge.png?branch=master
-        :target: https://coveralls.io/r/jmcarp/robobrowser
-
 Homepage: `http://robobrowser.readthedocs.org/ <http://robobrowser.readthedocs.org/>`_
 
 RoboBrowser is a simple, Pythonic library for browsing the web without a standalone web browser. RoboBrowser
@@ -168,10 +159,9 @@ By default, creating a browser instantiates a new requests `Session`.
 Requirements
 ------------
 
-- Python >= 2.6 or >= 3.3
+- Python 3.6 or later
 
 License
 -------
 
-MIT licensed. See the bundled `LICENSE <https://github.com/jmcarp/robobrowser/blob/master/LICENSE>`_ file for more details.
-
+MIT licensed. See the ``LICENSE`` file for more details.
