@@ -5,6 +5,7 @@ https://github.com/Lukasa/httpcache
 
 import logging
 import datetime
+from collections import OrderedDict
 from requests.adapters import HTTPAdapter
 
 logger = logging.getLogger(__name__)
