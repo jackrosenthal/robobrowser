@@ -27,14 +27,6 @@ robobrowser.cache module
     :undoc-members:
     :show-inheritance:
 
-robobrowser.compat module
--------------------------
-
-.. automodule:: robobrowser.compat
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 robobrowser.exceptions module
 -----------------------------
 
