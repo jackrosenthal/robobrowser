@@ -4,13 +4,13 @@ Robotic browser.
 
 import re
 import requests
+import urllib.parse
 from bs4 import BeautifulSoup
 from werkzeug.utils import cached_property
 from requests.packages.urllib3.util.retry import Retry
 
 from robobrowser import helpers
 from robobrowser import exceptions
-from robobrowser.compat import urlparse
 from robobrowser.forms.form import Form
 from robobrowser.cache import RoboHTTPAdapter
 
@@ -168,10 +168,7 @@ class RoboBrowser(object):
         :return: Full URL
 
         """
-        return urlparse.urljoin(
-            self.url,
-            url
-        )
+        return urllib.parse.urljoin(self.url, url)
 
     @property
     def _default_send_args(self):

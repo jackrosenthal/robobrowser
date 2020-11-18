@@ -11,8 +11,6 @@ OrderedDict = OrderedDict
 
 
 if PY2:
-    import urlparse
-    urlparse = urlparse
     string_types = (str, unicode)
     unicode = unicode
     basestring = basestring
@@ -20,8 +18,6 @@ if PY2:
     itervalues = lambda d: d.itervalues()
     builtin_name = '__builtin__'
 else:
-    import urllib.parse
-    urlparse = urllib.parse
     string_types = (str,)
     unicode = str
     basestring = (str, bytes)
